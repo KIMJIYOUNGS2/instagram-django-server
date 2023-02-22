@@ -9,3 +9,23 @@ from common.models import CommonModel
 
 class Review(CommonModel):
     caption = models.CharField(max_length=150)
+
+    # 1:N User:Review N이 ForeignKey
+    user = models.ForeignKey(
+        "users.User",
+        on_delete=models.CASCADE,
+        related_name="reviews"
+
+    )
+
+    # user => review
+    # user.review_set.all() -> user.reviews.all()
+
+    feed = models.ForeignKey(
+        "feeds.Feed",
+        on_delete=models.CASCADE,
+        related_name="reviews"
+    )
+
+    # feed => review
+    # feed.reviews.all()
