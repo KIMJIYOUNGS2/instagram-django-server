@@ -8,4 +8,4 @@ from common.models import CommonModel
 
 
 class Review(CommonModel):
-    caption = models.CharField(max_length=150)  # 댓글 내용
+    caption = models.CharField(max_length=150)
